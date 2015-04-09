@@ -5,7 +5,7 @@ cp -a init /usr/src/initramfs/init
 chmod +x /usr/src/initramfs/init
 
 cp -a /dev/{urandom,random} /usr/src/initramfs/dev
-bash coppy-recursive-ll.sh /sbin/cryptsetup /usr/src/initramfs/sbin/cryptsetup
+bash copy-recursive-ll.sh /sbin/cryptsetup /usr/src/initramfs
 
 # install a shell
 cd /usr/src/initramfs

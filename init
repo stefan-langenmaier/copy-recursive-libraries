@@ -11,7 +11,6 @@ mount -t proc none /proc
 mount -t sysfs none /sys
 
 echo "CRYPTSETUP"
- 
 /sbin/cryptsetup luksOpen /dev/sda3 gentoo-root || rescue_shell
 
 echo "MOUNTING"
@@ -24,5 +23,5 @@ umount /proc
 umount /sys
  
 # Boot the real root.
-exec switch_root /mnt/root /sbin/init
+exec switch_root /mnt/root /usr/lib/systemd/systemd
 
