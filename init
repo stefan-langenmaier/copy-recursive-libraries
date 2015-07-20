@@ -13,6 +13,9 @@ mount -t sysfs none /sys
 echo "CRYPTSETUP"
 /sbin/cryptsetup luksOpen /dev/sda3 gentoo-root || rescue_shell
 
+echo "FSCK"
+/sbin/fsck.btrfs /dev/mapper/gentoo-root
+
 echo "MOUNTING"
 # Mount the root filesystem.
 mount -o ro /dev/mapper/gentoo-root /mnt/root || rescue_shell

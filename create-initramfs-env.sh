@@ -6,6 +6,9 @@ chmod +x /usr/src/initramfs/init
 
 cp -a /dev/{urandom,random} /usr/src/initramfs/dev
 bash copy-recursive-ll.sh /sbin/cryptsetup /usr/src/initramfs
+bash copy-recursive-ll.sh /sbin/fsck /usr/src/initramfs
+bash copy-recursive-ll.sh /sbin/fsck.btrfs /usr/src/initramfs
+bash copy-recursive-ll.sh /sbin/btrfsck /usr/src/initramfs
 
 # install a shell
 cd /usr/src/initramfs
@@ -13,4 +16,5 @@ ln bin/busybox bin/sh
 
 # for a seperate file
 cd /usr/src/initramfs
-find . -print0 | cpio --null -ov --format=newc | gzip -9 > /boot/custom-initramfs.cpio.gz
+find . -print0 #| cpio --null -ov --format=newc | gzip -9 > /boot/custom-initramfs.cpio.gz
+#find . -print0 | cpio --null -ov --format=newc | gzip -9 > /boot/custom-initramfs.cpio.gz
